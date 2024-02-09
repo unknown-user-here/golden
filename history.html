@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-token" content="vtve5PnC1UtEmp3ailMCqzh6GTkXfc3TXnLmVYvB">
+    <title>History - Good luck satta</title>
+    <meta name="description"
+        content="Golden Bhavishya Rashi में आपका स्वागत है!!  | !!WELCOME TO Golden Bhavishya Rashi : The Biggest and Best Bhavishya Rashi in INDIA! Golden Bhavishya Rashi">
+    <meta name="keyword"
+        content="Golden Bhavishya Rashi,Golden Bhavishya, Bhavishya Rashi, Golden Rashi, Golden Rashi Bhavishya, Rashi Bhavishya,गोल्डन भविष्य राशि, गोल्डन राशि भविष्य">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="golden-bhavishya-rashi/css/css-app.css">
+    <link rel="stylesheet" href="golden-bhavishya-rashi/css/css-frontend.css">
+    <link rel="stylesheet" href="odometer-theme-car.css">
+    <script src="golden-bhavishya-rashi/js/odometer-odometer.js"></script>
+    <script src="jquery-3.5.1.js"></script>
+</head>
+
+<body id="body" style="display:none" class="min-h-screen font-sans antialiased text-gray-900">
+    <div class="relative">
+        <div class="container relative z-10">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="flex items-center justify-center h-full py-1"></div>
+                </div>
+                <div class="col-md-8" x-data="{ atTop: true, openModal: false }"
+                    x-on:scroll.window="atTop = (window.pageYOffset &gt; 100 &amp;&amp; window.innerWidth &lt; 769) ? false : true; "
+                    x-on:keydown.escape=" openModal = openModal ? false : true">
+                    <div class="flex items-center justify-center py-1 bg-black md:bg-transparent"
+                        x-bind:class="{ ' fixed top-0 left-0 right-0 z-50 py-14 px-8 shadow-lg': !atTop }"><a
+                            href="/"><img class="max-w-full img-responsive"
+                                src="golden-bhavishya-rashi/images/golden-bhavishya-rashi.png"
+                                alt="good luck satta logo"></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="flex items-center justify-center h-full py-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="flex items-center justify-center mt-10 mb-4 text-4xl font-bold text-white">Winning History
+                </h3>
+                <div class="flex flex-col max-w-lg p-1">
+                    <div class="col-span-6 sm:col-span-4"><label class="block font-medium text-sm text-white"
+                            for="date">Date</label><input
+                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block w-full mt-1"
+                            id="date1" type="date" name="l_date"></div>
+                </div>
+                <div class="flex flex-col p-1"><button id="r1"
+                        class="border-2 rounded inline-flex justify-center items-center btn btn-md btn-primary mb-5 px-4 py-1.5 w-24"
+                        type="submit"><i class="mr-1.5 fa fa-search"></i>Search</button></div>
+                <table class="table w-full text-white table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Subh Time</th>
+                            <th>AB-50</th>
+                            <th>AB-60</th>
+                            <th>AB-70</th>
+                        </tr>
+                    </thead>
+                    <tbody id="t1"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="py-3 mt-5 bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-gray-300">&copy; 2024 <span class="text-yellow-400">Golden Bhavishya Rashi</span>.
+                        All
+                        Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const d = new Date();
+        var todayDate = '';
+        const dayy = d.getDate();
+        var day = dayy.toString().length < 2 ? "0" + dayy : dayy;
+        const monthh = d.getMonth() + 1;
+        let month = monthh.toString().length < 2 ? "0" + monthh : monthh;
+        todayDate += day;
+        todayDate += "-";
+        todayDate += month;
+        todayDate += "-";
+        todayDate += d.getFullYear();
+        document.getElementById("r1").addEventListener("click", function () {
+            var date1 = $('#date1').val().split("-");
+            day = date1[2];
+            month = date1[1];
+            year = date1[0];
+            window.location = "?l_date=" + day + "-" + month + "-" + year;
+        });
+
+        function tConvert(time) {
+            time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+            if (time.length > 1) {
+                time = time.slice(1);
+                time[5] = +time[0] < 12 ? ' AM' : ' PM';
+                time[0] = +time[0] % 12 || 12;
+            }
+            return time.join('');
+        }
+        var minutesForM = d.getMinutes();
+        if (minutesForM < 20) {
+            minutesForM = "00"
+        } else {
+            if (minutesForM < 40) {
+                minutesForM = "20"
+            } else {
+                minutesForM = "40"
+            }
+        }
+        var hour = (d.getHours() < 10 ? '0' : '') + d.getHours();
+
+
+        const rowformatedTime = tConvert(hour + ":" + minutesForM);
+
+        const formatedTime = rowformatedTime.substring(2, 3) == ':' ? rowformatedTime : "0" + rowformatedTime;
+
+        function loadTableFirst(date0) {
+            const cd = parseInt(date0.slice(0, 2))
+            const cm = parseInt(date0.slice(3, 5))
+            const cy = parseInt(date0.slice(6, 10))
+            const td = parseInt(todayDate.slice(0, 2))
+            const tm = parseInt(todayDate.slice(3, 5))
+            const ty = parseInt(todayDate.slice(6, 10))
+            if (ty < cy) {
+                showPageVisible();
+                return
+            } else if (tm < cm) {
+                showPageVisible();
+                return
+            } else if (td < cd) {
+                showPageVisible();
+                return
+            }
+            let firstTabledate = date0.split("-").reverse().join("-")
+            const midurl = "?alt=media&token=";
+            const url = "https://firebasestorage.googleapis.com/v0/b/goldenrashi.appspot.com/o/" + firstTabledate + ".json";
+            $.getJSON(url,
+                function (data0) {
+                    const token = data0.downloadTokens;
+                    var skip = false;
+
+                    $.getJSON(url + midurl + token,
+                        function (datatime) {
+                            var listOfObjectNumber = [];
+                            $.each(datatime, function (key, value) {
+                                if (date0 == todayDate) {
+                                    if (d.getHours() < 9) {
+                                        skip = true;
+                                    }
+                                    if (skip) return;
+                                    if (formatedTime == value.t) {
+                                        skip = true;
+                                    }
+                                }
+                                var student = '';
+                                student += '<tr>';
+                                student += '<td>' +
+                                    value.t + '</td>';
+
+                                student += '<td>' +
+                                    '50' + value.m + '</td>';
+
+                                student += '<td>' +
+                                    '60' + value.d + '</td>';
+
+                                student += '<td>' +
+                                    '70' + value.s + '</td>';
+
+                                student += '</tr>';
+                                listOfObjectNumber[listOfObjectNumber.length] = student;
+                            });
+                            var finalNumber = '';
+                            listOfObjectNumber.reverse();
+                            listOfObjectNumber.forEach(function (thisNumber) {
+                                finalNumber += thisNumber;
+                            });
+
+                            $('#t1').append(finalNumber);
+                            showPageVisible();
+                        });
+
+                }).fail(function () {
+                    showPageVisible();
+                });
+        };
+        function parse_query_string(query) {
+            var vars = query.split("&");
+            var query_string = {};
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                var key = decodeURIComponent(pair.shift());
+                var value = decodeURIComponent(pair.join("="));
+                if (typeof query_string[key] === "undefined") {
+                    query_string[key] = value;
+                } else if (typeof query_string[key] === "string") {
+                    var arr = [query_string[key], value];
+                    query_string[key] = arr;
+                } else {
+                    query_string[key].push(value);
+                }
+            }
+            return query_string;
+        }
+        var query = window.location.search.substring(1);
+        var qs = parse_query_string(query);
+        if (qs.l_date != undefined) {
+            var date_input = document.getElementById('date1');
+            let value = qs.l_date.split('-').reverse().join('-');
+            date_input.value = value;
+            loadTableFirst(qs.l_date);
+        } else {
+            loadTableFirst(todayDate);
+        }
+        function showPageVisible() {
+            $('#body').show();
+        }
+    </script>
+    <!-- <script src="golden-bhavishya-rashi/js/livewire-livewire.js" data-turbo-eval="false" data-turbolinks-eval="false"></script>
+    <script data-turbo-eval="false" data-turbolinks-eval="false">if (window.livewire) {
+            console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+        }
+
+        window.livewire = new Livewire();
+        window.livewire.devTools(true);
+        window.Livewire = window.livewire;
+        window.livewire_app_url = '';
+        window.livewire_token = 'vtve5PnC1UtEmp3ailMCqzh6GTkXfc3TXnLmVYvB';
+
+        /* Make sure Livewire loads first. */
+        if (window.Alpine) {
+            /* Defer showing the warning so it doesn't get buried under downstream errors. */
+            document.addEventListener("DOMContentLoaded", function () {
+                setTimeout(function () {
+                    console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+                })
+            });
+        }
+
+        /* Make Alpine wait until Livewire is finished rendering to do its thing. */
+        window.deferLoadingAlpine = function (callback) {
+            window.addEventListener('livewire:load', function () {
+                callback();
+            });
+        };
+
+        let started = false;
+
+        window.addEventListener('alpine:initializing', function () {
+            if (!started) {
+                window.livewire.start();
+
+                started = true;
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!started) {
+                window.livewire.start();
+
+                started = true;
+            }
+        });</script>
+         -->
+</body>
+
+</html>
