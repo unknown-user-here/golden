@@ -134,6 +134,12 @@
 
         const formatedTime = rowformatedTime.substring(2, 3) == ':' ? rowformatedTime : "0" + rowformatedTime;
 
+        function isFutureDate(dateString) {
+            const [day, month, year] = dateString.split('-').map(Number);
+            const inputDate = new Date(year, month - 1, day); // Month is 0-indexed in Date constructor
+            const currentDate = new Date();
+            return inputDate > currentDate;
+        }
         function loadTableFirst(date0) {
             const cd = parseInt(date0.slice(0, 2))
             const cm = parseInt(date0.slice(3, 5))
@@ -141,14 +147,8 @@
             const td = parseInt(todayDate.slice(0, 2))
             const tm = parseInt(todayDate.slice(3, 5))
             const ty = parseInt(todayDate.slice(6, 10))
-            if (ty < cy) {
-                showPageVisible();
-                return
-            } else if (tm < cm) {
-                showPageVisible();
-                return
-            } else if (td < cd) {
-                showPageVisible();
+            if (isFutureDate(date0)) {
+                showPageVisible()
                 return
             }
             let firstTabledate = date0.split("-").reverse().join("-")
@@ -235,52 +235,6 @@
             $('#body').show();
         }
     </script>
-    <!-- <script src="golden-bhavishya-rashi/js/livewire-livewire.js" data-turbo-eval="false" data-turbolinks-eval="false"></script>
-    <script data-turbo-eval="false" data-turbolinks-eval="false">if (window.livewire) {
-            console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
-        }
-
-        window.livewire = new Livewire();
-        window.livewire.devTools(true);
-        window.Livewire = window.livewire;
-        window.livewire_app_url = '';
-        window.livewire_token = 'vtve5PnC1UtEmp3ailMCqzh6GTkXfc3TXnLmVYvB';
-
-        /* Make sure Livewire loads first. */
-        if (window.Alpine) {
-            /* Defer showing the warning so it doesn't get buried under downstream errors. */
-            document.addEventListener("DOMContentLoaded", function () {
-                setTimeout(function () {
-                    console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
-                })
-            });
-        }
-
-        /* Make Alpine wait until Livewire is finished rendering to do its thing. */
-        window.deferLoadingAlpine = function (callback) {
-            window.addEventListener('livewire:load', function () {
-                callback();
-            });
-        };
-
-        let started = false;
-
-        window.addEventListener('alpine:initializing', function () {
-            if (!started) {
-                window.livewire.start();
-
-                started = true;
-            }
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            if (!started) {
-                window.livewire.start();
-
-                started = true;
-            }
-        });</script>
-         -->
 </body>
 
 </html>
